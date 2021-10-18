@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+    <link rel="stylesheet" href="style.sass">
+    <title>Audios</title>
+    
+</head>
+<body>
+    <audio src="music/AC-DC.mp3" id="musica"></audio>
+    <div id="contenedor">
+        <header>
+            <img src="img/micro.jpg" width="10%" height="10%">
+            <span>Radio Patio</span>
+            <div id="botones">
+                <span class="material-icons" onclick="play()"> play_arrow</span>
+                <span class="material-icons" onclick="prev()">skip_previous</span>
+                <span class="material-icons" onclick="pause()">pause</span>
+                <span class="material-icons" onclick="next()">skip_next</span>
+                <span class="material-icons-outlined" onclick="vDown()">volume_down</span>
+                <span class="material-icons-outlined" onclick="vUp()">volume_up</span>
+
+            </div>
+        </header>
+        <div id="centro">
+            <aside>
+                <p>Inicio</p>
+                <p>¿Donde Estamos?</p>
+                <p>Nuestra Carta</p>
+                <p>Horarios</p>
+            </aside>
+            <main>
+                <img src="img/micro.jpg" width="40%" height="80%">
+            </main>
+         </div>
+         <footer>
+             <p>Pie de Página</p>
+         </footer>
+    </div>
+
+
+
+    <script>
+        var i = 0;
+        var Musicas = ["AC-DC","Aretha", "Bob Marley", "Red Hot Chili Peppers"];
+        function play(){
+            var audio = document.getElementById("musica");
+            audio.play();
+        }
+        function prev(){
+            if(i != 0){
+                i= i-1;
+            }
+            document.getElementById("musica").src=`/${Musicas[i]}.mp3`
+            var audio = document.getElementById("musica");
+            
+        }
+
+        function pause(){
+            var audio = document.getElementById("musica");
+            audio.pause();
+        }
+
+        function next(){
+            if(i != 3){
+                i= i+1;
+            }
+            document.getElementById("musica").src=`/${Musicas[i]}.mp3`
+            var audio = document.getElementById("musica");
+            
+        }
+
+        function vUp(){
+            var audio = document.getElementById("musica");
+            audio.volume += 0.1;
+        }
+
+        function vDown(){
+            var audio = document.getElementById("musica");
+            audio.volume -= 0.1;
+        }
+    </script>
+    
+</body>
+</html>
+
